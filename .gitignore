@@ -28,3 +28,10 @@
 
 # "temporary" build files
 /target
+
+# idea project files
+.idea
+*.iml
+
+# 
+
