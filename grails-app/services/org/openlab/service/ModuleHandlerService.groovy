@@ -53,7 +53,7 @@ public class ModuleHandlerService {
 		}
 		
 		modules = modules.findAll { it instanceof Module}
-		
+
 		modules.findAll { it.isInterestedIn(attrs.domainClass, attrs.type) }
 	}
 
