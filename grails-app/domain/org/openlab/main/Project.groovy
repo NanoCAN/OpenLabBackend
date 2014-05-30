@@ -37,12 +37,7 @@ class Project extends MainObject {
         object(nullable: true)
     }
 
-    /*//make dataobjects target for searchable plugin
-     static searchable = {
-         mapping {
-             object component : true
-         }
-     }   */
+    static searchable = true
 
     static belongsTo = [laboratory: Laboratory]
     static hasMany = [object: DataObject]

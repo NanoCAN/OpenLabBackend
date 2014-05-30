@@ -40,8 +40,6 @@ class SubDataObject extends MainObject {
     static String type = "subDataObject"
     static String typeLabel = "subDataObject"
 
-    //static searchable = true
-
     static mapping = {
         //without this, all DataObjects would be stored within one single huge datatable.
         tablePerHierarchy false

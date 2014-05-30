@@ -61,14 +61,6 @@ public class MainObject{
 	
 	static String dbName = ConfigurationHolder.config.openlab.database.name
 	
-	//make objects searchable
-	static searchable = {
-		mapping {
-			//needed for suggestions in searchable
-			spellCheck "include"
-		}
-	}
-	
 	/**
 	 * update history fields on insert and update
 	 */
