@@ -38,7 +38,7 @@ import grails.converters.*;
  * @author markus.list
  *
  */
-class DataObjectController extends MainController {
+class DataObjectController {
 	
 	def scaffold = true
 

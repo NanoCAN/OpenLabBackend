@@ -37,7 +37,7 @@ import org.openlab.main.*;
  * @author markus.list
  *
  */
-class ProjectController extends MainController {
+class ProjectController {
 
 	def springSecurityService
 	
