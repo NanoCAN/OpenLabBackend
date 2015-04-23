@@ -29,6 +29,8 @@
  */
 package org.openlab.main
 
+import org.openlab.security.User
+
 /**
  * DataObject is to be extended by all domain classes that are in some kind data that is not 
  * more or less static (contrary to master data).
@@ -42,8 +44,13 @@ class DataObject extends MainObject {
 
     static belongsTo = Project
 
-    static hasMany = [projects: Project]
+    static hasMany = [projects: Project, shared: User]
 
+    String accessLevel
+
+    static constraints = {
+        accessLevel nullable:true, inList: ["user", "group", "shared", "open"]
+    }
     static mapping = {
         //without this, all DataObjects would be stored within one single huge datatable.
         tablePerHierarchy false

@@ -32,6 +32,8 @@ package org.openlab.security
 class User implements Serializable{
 
     transient springSecurityService
+	transient hasBeforeUpdate = false
+	transient hasBeforeInsert = false
 
 	String username
 	String userRealName
@@ -63,17 +65,24 @@ class User implements Serializable{
 		username
 	}
 
-    def beforeInsert() {
-        encodePassword()
-    }
+	def beforeInsert() {
+		if (!hasBeforeInsert)
+		{
+			hasBeforeInsert = true
+			encodePassword()
+		}
+	}
 
-    def beforeUpdate() {
-        if (isDirty('password')) {
-            encodePassword()
-        }
-    }
+	def beforeUpdate() {
+		if (isDirty('password') && !hasBeforeUpdate) {
+			hasBeforeUpdate = true
+			println password
+			encodePassword()
+		}
+	}
 
-    protected void encodePassword() {
-        password = springSecurityService.encodePassword(password)
-    }
+	protected void encodePassword() {
+		password = springSecurityService.encodePassword(password)
+	}
+
 }
