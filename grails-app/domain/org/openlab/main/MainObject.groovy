@@ -30,7 +30,6 @@
 package org.openlab.main;
 
 import org.openlab.security.*;
-import org.codehaus.groovy.grails.commons.ConfigurationHolder
 
 /**
  * MainObject with History related fields and methods
@@ -40,7 +39,7 @@ import org.codehaus.groovy.grails.commons.ConfigurationHolder
 public class MainObject{
 	
 	def springSecurityService
-	
+
 	Date dateCreated
 	Date lastUpdate
 	
@@ -59,7 +58,7 @@ public class MainObject{
 		dateCreated()
 	}
 	
-	static String dbName = ConfigurationHolder.config.openlab.database.name
+	static String dbName = grails.util.Holders.config.openlab.database.name
 	
 	/**
 	 * update history fields on insert and update
